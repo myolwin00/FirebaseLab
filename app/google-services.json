@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "816347347531",
+    "firebase_url": "https://fir-lab-8147a.firebaseio.com",
+    "project_id": "fir-lab-8147a",
+    "storage_bucket": "fir-lab-8147a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816347347531:android:830aae8064f538ad65abce",
+        "android_client_info": {
+          "package_name": "com.emrys.firebaselab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "816347347531-etm73eu17ceuklmd6l83jrhl5hbuclau.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkKDbitW9shc0ggOCcpv_7AzeaQbgKXWo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "816347347531-etm73eu17ceuklmd6l83jrhl5hbuclau.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
