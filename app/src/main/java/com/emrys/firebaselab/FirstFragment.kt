@@ -1,5 +1,7 @@
 package com.emrys.firebaselab
 
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +14,9 @@ import com.emrys.firebaselab.databinding.FragmentFirstBinding
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
+import java.io.ByteArrayOutputStream
+import java.io.File
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -33,48 +38,38 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val db = Firebase.firestore
+        val storage = Firebase.storage
+        var storageRef = storage.reference
 
-        FirebaseCrashlytics.getInstance().log("First fragment sa p")
-
-        db.collection("users")
-            .addSnapshotListener { value, error ->
-                var dataString = ""
-                value?.let {
-                    for (document in it.documents) {
-                        dataString = dataString + "\n" + document.data.toString()
-                    }
-                }
-                binding.textviewFirst.text = dataString
-            }
+        val androidRef = storageRef.child("android.jpg")
 
 
         view.findViewById<Button>(R.id.button_first).setOnClickListener {
-            // Create a new user with a first and last name
-            // Create a new user with a first, middle, and last name
-            val user = hashMapOf(
-                "first" to "Alan",
-                "middle" to "Mathison",
-                "last" to "Turing",
-                "born" to 1912
-            )
-            // Add a new document with a generated ID
-            db.collection("users")
-                .add(user)
-                .addOnSuccessListener { documentReference ->
-                    Toast.makeText(
-                        requireContext(),
-                        "DocumentSnapshot added with ID: ${documentReference.id}",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-                .addOnFailureListener { e ->
-                    Toast.makeText(
-                        requireContext(),
-                        "Error adding document${e.localizedMessage}",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
+
+            // Get the data from an ImageView as bytes
+//            binding.imageView.isDrawingCacheEnabled = true
+//            binding.imageView.buildDrawingCache()
+//            val bitmap = (binding.imageView.drawable as BitmapDrawable).bitmap
+//            val baos = ByteArrayOutputStream()
+//            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+//            val data = baos.toByteArray()
+//
+//            var uploadTask = androidRef.putBytes(data)
+//            uploadTask.addOnFailureListener {
+//                // Handle unsuccessful uploads
+//            }
+//                .addOnSuccessListener {
+//                // taskSnapshot.metadata contains file metadata such as size, content-type, etc.
+//                // ...
+//                   // here is the fucking url !!
+//                    val url = it.uploadSessionUri
+//            }
+
+
+//            val localFile = File.createTempFile("images", "jpg")
+
+            androidRef.delete()
+
         }
     }
 }
