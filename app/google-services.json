@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "816347347531-qcoaadd59krcbl2e8luufcm4832fgos9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.emrys.firebaselab",
+            "certificate_hash": "9236f3a46c78ec23ccdf09a18e87b07871cb9098"
+          }
+        },
+        {
           "client_id": "816347347531-etm73eu17ceuklmd6l83jrhl5hbuclau.apps.googleusercontent.com",
           "client_type": 3
         }
